@@ -1,19 +1,24 @@
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
+const inter = Inter({ subsets: ["latin"] });
 
-import styles from "./surveyLayout.module.css";
+export const metadata: Metadata = {
+  title: "Marko Gligorijevic",
+  description: "Personalni Trener",
+};
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html>
-      <body>
-        <div className={styles["survey-layout-wrapper"]}>
-          <main className="flex-1">{children}</main>
-        </div>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body>{children}</body>
+      </html>
+    </ClerkProvider>
   );
 }
