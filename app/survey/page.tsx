@@ -1,7 +1,6 @@
 "use client";
 
 import SurveyForm from "@/components/features/survey/SurveyForm";
-import SurveyPagination from "@/components/features/survey/SurveyPagination";
 
 //redux
 import { Provider } from "react-redux";
